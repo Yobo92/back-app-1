@@ -12,6 +12,13 @@ mongoose.connect(mongoServer, {useNewUrlParser: true, useUnifiedTopology:true}).
 )
 
 //CORS Support
+
+
+var indexRouter = require('./routes/index');
+var items = require('./routes/items');
+
+var app = express();
+
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, POST, GET, PUT, DELETE, PATCH')
@@ -19,11 +26,6 @@ app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true)
         next();
     })
-
-var indexRouter = require('./routes/index');
-var items = require('./routes/items');
-
-var app = express();
 
 
 app.use(logger('dev'));
