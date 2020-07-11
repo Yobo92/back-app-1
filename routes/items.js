@@ -32,7 +32,7 @@ router.post('/', (req, res) =>{
     })
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:_id', (req, res) => {
     console.log(req.params._id)
     Item.where('_id').equals(req.params._id)
     .remove()
