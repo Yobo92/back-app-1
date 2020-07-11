@@ -32,4 +32,17 @@ router.post('/', (req, res) =>{
     })
 })
 
+router.delete('/', (req, res) => {
+    Item.where('_id').equals(req.body.id)
+    .remove()
+    .exec((err, data) => {
+        if(err) {
+            res.send("error: "+ err)
+        } else
+        {
+            res.json(data)
+        }
+    })
+})
+
 module.exports = router;
