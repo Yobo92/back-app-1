@@ -33,7 +33,7 @@ router.post('/', (req, res) =>{
 })
 
 router.delete('/', (req, res) => {
-    Item.where('_id').equals(req.body.id)
+    Item.where('_id').equals(req.body._id)
     .remove()
     .exec((err, data) => {
         if(err) {
